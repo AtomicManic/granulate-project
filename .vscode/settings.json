@@ -2,5 +2,41 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
-  "python.formatting.provider": "none"
+  "python.formatting.provider": "none",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "backend/app/api/deps/__init__.py": true,
+    "backend/app/api/__init__.py": true,
+    "backend/app/models/__init__.py": true,
+    "backend/app/models/__pycache__": true,
+    "backend/app/schemas/__pycache__": true,
+    "backend/app/schemas/__init__.py": true,
+    "backend/app/services/__pycache__": true,
+    "backend/app/services/__init__.py": true,
+    "backend/app/__init__.py": true,
+    "backend/app/util/__init__.py": true,
+    "backend/app/util/__pycache__": true,
+    "backend/app/__pycache__": true,
+    "backend/app/api/__pycache__": true
+  },
+  "hide-files.files": [
+    "backend/app/api/deps/__init__.py",
+    "backend/app/api/__init__.py",
+    "backend/app/models/__init__.py",
+    "backend/app/models/__pycache__",
+    "backend/app/schemas/__pycache__",
+    "backend/app/schemas/__init__.py",
+    "backend/app/services/__pycache__",
+    "backend/app/services/__init__.py",
+    "backend/app/__init__.py",
+    "backend/app/util/__init__.py",
+    "backend/app/util/__pycache__",
+    "backend/app/__pycache__",
+    "backend/app/api/__pycache__"
+  ]
 }

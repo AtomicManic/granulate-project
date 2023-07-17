@@ -7,18 +7,13 @@ import pymongo
 
 class User(Document):
     user_id: UUID = Field(default_factory=uuid4)
-    email: EmailStr = Indexed(EmailStr, unique=True)
+    email: Indexed(EmailStr, unique=True)
     hashed_password: str
     first_name: str
     last_name: str
 
     class Settings:
         name = "users"
-        indexes = [
-            [
-                ("email", pymongo.TEXT),
-            ]
-        ]
 
     def __repr__(self) -> str:
         return f"<User {self.email}"
