@@ -9,6 +9,7 @@ import {
   useColorMode,
   useColorModeValue,
   Text,
+  // FormHeading,
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -28,15 +29,17 @@ const Login = () => {
   };
 
   return (
-    <Flex height="100vh" align="center" justifyContent="center">
+    <Flex height="70vh" align="center" justifyContent="center">
       <Flex
         direction="column"
         alignItems="center"
         background={useColorModeValue("gray.100", "gray.700")}
-        p={12}
+        p={10}
         rounded={6}
+        width="80%"
       >
         <form onSubmit={handleSubmit(onSubmit)}>
+          <Heading mb={7}>Login</Heading>
           <FormControl isInvalid={errors.email}>
             <Input
               placeholder="Email"
@@ -91,7 +94,7 @@ const Login = () => {
             </Button>
           </Flex>
           <Button
-            // onClick={() => navigate("/register", { replace: true })}
+            onClick={() => navigate("/", { replace: true })}
             width="100%"
             colorScheme="gray"
             variant="link"

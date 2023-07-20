@@ -23,7 +23,14 @@ const bounceAnimation = css`
 
 const BouncingArrow = ({ scrollToRef }) => {
   return (
-    <Box onClick={scrollToRef} css={bounceAnimation} textAlign="center" mt={10}>
+    <Box
+      onClick={scrollToRef}
+      css={bounceAnimation}
+      textAlign="center"
+      mt={10}
+      cursor="pointer"
+      color={"teal.400"}
+    >
       <ChevronDownIcon boxSize={20} />
     </Box>
   );

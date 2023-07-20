@@ -6,10 +6,10 @@ import {
 } from "react-router-dom";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
-import Home from "./components/Home";
+import Home from "./components/views/Home";
 import { AuthProvider } from "./contexts/JWTAuthContext";
 import Navbar from "./components/Navbar";
-import Instructions from "./components/Instructions";
+import Instructions from "./components/views/Instructions";
 
 function App() {
   return (

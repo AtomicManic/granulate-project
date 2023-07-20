@@ -53,7 +53,7 @@ const CardComponent = ({ item, scrollToRef }) => {
   const cardWidth = useBreakpointValue({ base: "300px", sm: "md", md: "lg" });
 
   return (
-    <Card m="10px" height="280px" fontSize="22px" w={cardWidth}>
+    <Card m="10px" height="320px" fontSize="22px" w={cardWidth}>
       <CardHeader>
         <Heading size="md">{item.title}</Heading>
       </CardHeader>

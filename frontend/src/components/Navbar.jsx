@@ -19,6 +19,7 @@ import {
   DrawerCloseButton,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { CloudArrowUp } from "react-bootstrap-icons";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -37,7 +38,8 @@ const Navbar = () => {
       color="white"
     >
       <Flex>
-        <Text fontSize="xl" fontWeight="bold" mr={8}>
+        <CloudArrowUp fontSize="30" />
+        <Text fontSize="xl" fontWeight="bold" mr={8} ml={3}>
           CloudOPT
         </Text>
         {!isMobileNav && (

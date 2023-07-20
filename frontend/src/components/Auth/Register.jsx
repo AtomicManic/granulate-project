@@ -28,15 +28,17 @@ const Register = () => {
   };
 
   return (
-    <Flex height="100vh" align="center" justifyContent="center">
+    <Flex height="84vh" align="center" justifyContent="center">
       <Flex
         direction="column"
         alignItems="center"
         background={useColorModeValue("gray.100", "gray.700")}
-        p={12}
+        p={10}
         rounded={6}
+        width="80%"
       >
         <form onSubmit={handleSubmit(onSubmit)}>
+          <Heading mb={7}>Register</Heading>
           <FormLabel>Personal Info</FormLabel>
           <FormControl isInvalid={errors.first_name}>
             <Input
