@@ -1,24 +1,14 @@
-import {
-  Divider,
-  Flex,
-  Heading,
-  Text,
-  Box,
-  useBreakpointValue,
-  AbsoluteCenter,
-} from "@chakra-ui/react";
-import SliderComponent from "../util/SliderComponent";
-import { React, createRef, useRef } from "react";
-import UploadFile from "../UploadFile";
-import { CloudArrowUpFill } from "react-bootstrap-icons";
-import CloudDivider from "../util/CloudDivider";
+import { Flex, Heading, Text } from "@chakra-ui/react";
+import SliderComponent from "../general/SliderComponent";
+import { React, useState } from "react";
+
+import { useAuth } from "../../hooks/useAuth";
 
 const Home = () => {
-  const uploadFileRef = useRef(null);
-
-  const scrollToRef = () => {
-    uploadFileRef.current.scrollIntoView({ behavior: "smooth" });
-  };
+  const auth = useAuth();
+  useState(() => {
+    localStorage.setItem("authState", JSON.stringify(auth));
+  }, []);
   return (
     <Flex direction="column" justifyContent="center" width="80%" m="0 auto">
       <Heading m={10} mb={3}>
@@ -36,16 +26,9 @@ const Home = () => {
       <Text m={10} fontSize={25}>
         This is how it works:
       </Text>
-      <SliderComponent scrollToRef={scrollToRef} />
-      <CloudDivider />
-      <Heading m={10} textAlign="center">
-        Upload JSON File
-      </Heading>
-      <UploadFile ref={uploadFileRef} />
+      <SliderComponent />
     </Flex>
   );
 };
 
 export default Home;
-
-// <i class="fa-solid fa-cloud-arrow-up"></i>

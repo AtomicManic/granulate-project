@@ -4,7 +4,7 @@ import { resetSession, setSession } from "../utils/session";
 import axiosInstance from "../services/axios";
 
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: !!localStorage.getItem("accessToken"),
   isInitialized: false,
   user: null,
 };
@@ -55,10 +55,12 @@ export const AuthProvider = (props) => {
     const initialize = async () => {
       try {
         const accessToken = localStorage.getItem("accessToken");
+
         if (accessToken && validateToken(accessToken)) {
           setSession(accessToken);
           const response = await axiosInstance.get("/users/me");
           const { data: user } = response;
+
           dispatch({
             type: "INITIALIZE",
             payload: { isAuthenticated: true, user },
@@ -70,16 +72,16 @@ export const AuthProvider = (props) => {
           });
         }
       } catch (error) {
-        console.error(error);
         dispatch({
           type: "INITIALIZE",
           payload: { isAuthenticated: false, user: null },
         });
       }
     };
+
     initialize();
     isMounted.current = true;
-  }, []);
+  }, [state]);
 
   const getTokens = async (email, password) => {
     const formData = new FormData();
@@ -88,15 +90,16 @@ export const AuthProvider = (props) => {
     try {
       const response = await axiosInstance.post("/auth/login", formData);
       const { access_token, refresh_token } = response.data;
-      setSession(accessToken, refresh_token);
+      setSession(access_token, refresh_token);
     } catch (error) {
-      throw error;
+      setSession(null);
     }
   };
 
   const login = async (email, password) => {
     try {
-      await getTokens(email, password);
+      const error = await getTokens(email, password);
+      if (error) return;
       const response = await axiosInstance.get("/users/me");
       const { data: user } = response;
       dispatch({
@@ -115,6 +118,7 @@ export const AuthProvider = (props) => {
     dispatch({
       type: "LOGOUT",
     });
+    localStorage.setItem("authState", JSON.stringify(initialState));
   };
 
   return (

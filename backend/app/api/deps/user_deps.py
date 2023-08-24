@@ -19,9 +19,9 @@ async def get_current_user(token: str = Depends(reusable_auth)) -> User:
     try:
         payload = jwt.decode(token, settings.JWT_SECRET_KEY,
                              algorithms=[settings.ALGORITHM])
+        print('here1')
         token_data = TokenPayload(**payload)
-
-        if datetime.fromtimestamp(token_data.exp) < datetime.now():
+        if datetime.fromtimestamp(token_data.exp) < datetime.utcnow():
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Token expires",
@@ -29,16 +29,18 @@ async def get_current_user(token: str = Depends(reusable_auth)) -> User:
             )
     except (jwt.JWTError, ValidationError):
         raise HTTPException(
-            staus_code=status.HTTP_403_FORBIDDEN,
+            status_code=status.HTTP_403_FORBIDDEN,
             detail="Could not validate credentials",
             headers={"WWW-Authentication": "Bearer"}
         )
 
-    user = await UserService.get_user_by_id(token_data.sub)
+    print(type(token_data.sub))
+    user = await UserService.get_user_by_id(id=str(token_data.sub))
+    print('1', user)
 
     if not user:
         raise HTTPException(
-            staus_code=status.HTTP_404_NOT_FOUND,
+            status_code=status.HTTP_404_NOT_FOUND,
             detail="Could not find user",
             headers={"WWW-Authentication": "Bearer"}
         )

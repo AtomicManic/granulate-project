@@ -1,18 +1,19 @@
 import {
   Button,
-  Divider,
   Flex,
   FormControl,
   FormErrorMessage,
   FormLabel,
   Heading,
   Input,
-  useColorMode,
+  Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../services/axios";
+import { useState } from "react";
 
 const Register = () => {
   const {
@@ -21,10 +22,25 @@ const Register = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
+  const [errorMsgs, setErrorMsgs] = useState({});
+
   const navigate = useNavigate();
 
-  const onSubmit = (values) => {
-    console.log(values);
+  const onSubmit = async (values) => {
+    try {
+      const response = await axiosInstance.post("/users/register", values, {
+        withCredentials: true,
+        headers: { "Content-Type": "application/json" },
+      });
+      navigate("/login");
+    } catch (error) {
+      error.response.data?.detail === "Email already exist"
+        ? setErrorMsgs({
+            ...errorMsgs,
+            duplicateEmail: error.response.data.detail,
+          })
+        : null;
+    }
   };
 
   return (
@@ -35,10 +51,12 @@ const Register = () => {
         background={useColorModeValue("gray.100", "gray.700")}
         p={10}
         rounded={6}
-        width="80%"
+        width="65%"
       >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Heading mb={7}>Register</Heading>
+          <Heading textAlign="center" mb={7}>
+            Register
+          </Heading>
           <FormLabel>Personal Info</FormLabel>
           <FormControl isInvalid={errors.first_name}>
             <Input
@@ -70,7 +88,7 @@ const Register = () => {
               {...register("last_name", {
                 required: "This is a required field",
                 minLength: {
-                  value: 5,
+                  value: 2,
                   message: "Last name must have at least 2 characters",
                 },
               })}
@@ -83,19 +101,27 @@ const Register = () => {
           <FormControl isInvalid={errors.email}>
             <Input
               placeholder="Email"
+              autoComplete="username"
               background={useColorModeValue("gray.300", "gray.600")}
               type="email"
               size="lg"
               mt={2}
               {...register("email", { required: "This is a required field" })}
+              onChange={() => setErrorMsgs({})}
             />
             <FormErrorMessage>
               {errors.email && errors.email.message}
             </FormErrorMessage>
+            {errorMsgs && (
+              <Text fontSize="sm" color="#fc8181">
+                {errorMsgs.duplicateEmail}
+              </Text>
+            )}
           </FormControl>
           <FormControl isInvalid={errors.password}>
             <Input
               placeholder="Password"
+              autoComplete="current-password"
               background={useColorModeValue("gray.300", "gray.600")}
               type="password"
               size="lg"

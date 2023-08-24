@@ -1,0 +1,2311 @@
+{
+  "id": "4cc59ac9-b553-439e-becb-77d250f8eb2e",
+  "customerName": "DummyFinal",
+  "processedDate": "2023-06-24T00:25:20.271531Z",
+  "version": 2,
+  "vms": [
+    {
+      "id": "i-0d79b8f8d292125a2",
+      "name": "i-0d79b8f8d292125a2",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2a",
+        "Deploy_CS": "Yes",
+        "Name": "OH Analytics dev RDS Instance",
+        "Patch Group": "patchable",
+        "PatchGroup": "patchable"
+      },
+      "externalIndex": "2e47bc05-98ab-40ff-aaae-a56136f67808",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t2.micro",
+        "instanceTier": "",
+        "instanceSize": "micro",
+        "instanceFamily": "t2",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 1,
+          "gpus": 0,
+          "vCPUsPerCore": 1,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 2,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "xen",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 1,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x86",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 0,
+            "baselineIops": 0,
+            "baselineThroughputInMBps": 0,
+            "maximumBandwidthInMbps": 0,
+            "maximumIops": 0,
+            "maximumThroughputInMBps": 0
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 9.782,
+          "reservedOneYear": 36.427,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "",
+        "instanceTier": "",
+        "instanceSize": "",
+        "instanceFamily": "",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 0,
+          "gpus": 0,
+          "vCPUsPerCore": 0,
+          "encryptionAtHostSupported": false,
+          "maxNetworkInterfaces": 0,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 0,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 0,
+            "baselineIops": 0,
+            "baselineThroughputInMBps": 0,
+            "maximumBandwidthInMbps": 0,
+            "maximumIops": 0,
+            "maximumThroughputInMBps": 0
+          }
+        },
+        "location": "",
+        "isIntel": false,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": null,
+          "reservedOneYear": null,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.003637270318588855,
+          "pct95": 0.004893626161334722,
+          "pct99": 0.01444845790497362
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 8,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 100
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-0e3a18d4e1bc5fbba",
+      "name": "i-0e3a18d4e1bc5fbba",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "1",
+        "Labels": "aws,github actions,validation,rootless-docker,ctx_deployer,validation-runner-002",
+        "Name": "validation-runner-002",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "celine-validation",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "ffe50534-7f56-4b26-9eb8-595e73f5f7f5",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.medium",
+        "instanceTier": "",
+        "instanceSize": "medium",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 4,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 347,
+            "baselineIops": 2000,
+            "baselineThroughputInMBps": 43.375,
+            "maximumBandwidthInMbps": 2085,
+            "maximumIops": 11800,
+            "maximumThroughputInMBps": 260.625
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 32.923,
+          "reservedOneYear": 58.838,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "c5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "c5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 4,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 51200,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 20000,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 73,
+          "reservedOneYear": 21.17,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.015296278757982135,
+          "pct95": 0.016599968684369068,
+          "pct99": 0.025805967708582102
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 100,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 300
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-0051bb58e6576524b",
+      "name": "i-0051bb58e6576524b",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "4",
+        "Labels": "aws,github actions,validation,rootless-docker,ctx_deployer,validation-runner-001",
+        "Name": "validation-runner-001",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "celine-validation",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "d08e8419-3ce1-430b-88d3-07e5851162bb",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 63.291,
+          "reservedOneYear": 62.05,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "m5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "m5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 76800,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 3600,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 18750,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 85.409996,
+          "reservedOneYear": 84.68,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.02602379567719039,
+          "pct95": 0.05525528000640062,
+          "pct99": 0.10134883858275788
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 100,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 300
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-07065073810fbc63e",
+      "name": "i-07065073810fbc63e",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "4",
+        "Labels": "aws,github actions,rootless-docker,runner-001",
+        "Name": "runner-001",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "celine",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "551bf797-f717-4e60-ad34-d1705e361b7b",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.xlarge",
+        "instanceTier": "",
+        "instanceSize": "xlarge",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 4,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 4,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 126.582,
+          "reservedOneYear": 56.648003,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "r5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "r5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 76800,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 3600,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 18750,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 108.04,
+          "reservedOneYear": 143.81,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.014895536881757696,
+          "pct95": 0.05071009305438524,
+          "pct99": 0.12314325553841636
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 150,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 450
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-04565b566965d9d5b",
+      "name": "i-04565b566965d9d5b",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "4",
+        "Labels": "aws,scans",
+        "Name": "celine_cicd_node_aws_pricing",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "non-runner",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "jenkins"
+      },
+      "externalIndex": "4647d269-e203-46c4-b014-31df66b88926",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.xlarge",
+        "instanceTier": "",
+        "instanceSize": "xlarge",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 4,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 4,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 126.582,
+          "reservedOneYear": 56.648003,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "r5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "r5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 76800,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 3600,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 18750,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 108.04,
+          "reservedOneYear": 143.81,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.012728088841619618,
+          "pct95": 0.030477860876513208,
+          "pct99": 0.04942291609839085
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 100,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 300
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-0410c4a64d4673b8a",
+      "name": "i-0410c4a64d4673b8a",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Executors": "4",
+        "Labels": "saas-runner,saas-runner-001",
+        "Name": "saas-runner-001",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "dcst-saas",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "7e24d2cd-93c9-4047-831f-33429e4009a2",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.xlarge",
+        "instanceTier": "",
+        "instanceSize": "xlarge",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 4,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 4,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 126.582,
+          "reservedOneYear": 56.648003,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "",
+        "instanceTier": "",
+        "instanceSize": "",
+        "instanceFamily": "",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 0,
+          "gpus": 0,
+          "vCPUsPerCore": 0,
+          "encryptionAtHostSupported": false,
+          "maxNetworkInterfaces": 0,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 0,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 0,
+            "baselineIops": 0,
+            "baselineThroughputInMBps": 0,
+            "maximumBandwidthInMbps": 0,
+            "maximumIops": 0,
+            "maximumThroughputInMBps": 0
+          }
+        },
+        "location": "",
+        "isIntel": false,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": null,
+          "reservedOneYear": null,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-06-21T23:10:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.05118742157312825,
+          "pct95": 0.2697209662303371,
+          "pct99": 0.40982672489289934
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 150,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 450
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-08331ea74516052f0",
+      "name": "i-08331ea74516052f0",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "1",
+        "Labels": "aws,dcst-ohio,celine-test-ohio-runner",
+        "Name": "celine-test-ohio-runner",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "dcst-ohio",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "6e1d0c2b-593e-4d7e-908d-b630514022cc",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.xlarge",
+        "instanceTier": "",
+        "instanceSize": "xlarge",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 4,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 4,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 126.582,
+          "reservedOneYear": 56.648003,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "c5d.2xlarge",
+        "instanceTier": "",
+        "instanceSize": "2xlarge",
+        "instanceFamily": "c5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 4,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 204800,
+          "vCPUs": 8,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 2300,
+            "baselineIops": 10000,
+            "baselineThroughputInMBps": 287.5,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 20000,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 290.54,
+          "reservedOneYear": 156.22,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-06-02T20:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.019789376160003324,
+          "pct95": 0.011665422561777845,
+          "pct99": 0.9997354479402359
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 100,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 300
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-09e69f727a27cac1f",
+      "name": "i-09e69f727a27cac1f",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "1",
+        "Labels": "optimization-registry-frontend,frontend,saas-frontend-001",
+        "Name": "saas-frontend-001",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "dcst-saas-frontend",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "004bd37d-04ef-4bb7-ade9-ec4e813fef27",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 63.291,
+          "reservedOneYear": 62.05,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "m5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "m5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 76800,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 3600,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 18750,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 85.409996,
+          "reservedOneYear": 84.68,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.019444851620593624,
+          "pct95": 0.019644450110584986,
+          "pct99": 0.18278851867793544
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 150,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 450
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-079478f558ebec6d3",
+      "name": "i-079478f558ebec6d3",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "1",
+        "Labels": "aws,celine_ctx",
+        "Name": "celine_ctx",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "non-runner",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "ctx"
+      },
+      "externalIndex": "12400b78-bf24-402b-a882-4bbb4ecebc93",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 63.291,
+          "reservedOneYear": 62.05,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "m5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "m5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 76800,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 3600,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 18750,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 85.409996,
+          "reservedOneYear": 84.68,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.017343142000927944,
+          "pct95": 0.019961092875594066,
+          "pct99": 0.028205693897080216
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 100,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 300
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-06925091329433a12",
+      "name": "i-06925091329433a12",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "4",
+        "Labels": "saas-runner,saas-runner-002",
+        "Name": "saas-runner-002",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "dcst-saas",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "ddfcc506-69b3-4d9d-9589-bd279bce0cca",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.xlarge",
+        "instanceTier": "",
+        "instanceSize": "xlarge",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 4,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 4,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 126.582,
+          "reservedOneYear": 56.648003,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "r5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "r5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 76800,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 3600,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 18750,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 108.04,
+          "reservedOneYear": 143.81,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-06-14T16:40:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.03737415848956117,
+          "pct95": 0.16835103320953348,
+          "pct99": 0.404007270708134
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 150,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 450
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-012beefb0a05de562",
+      "name": "i-012beefb0a05de562",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Name": "cloud-acument-proxy",
+        "PartOf": "CloudAcumen",
+        "Patch Group": "patchable",
+        "PatchGroup": "patchable",
+        "deploy_BigFix": "yes"
+      },
+      "externalIndex": "c03840c3-325b-4ddb-88fd-877dd77dad6c",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.medium",
+        "instanceTier": "",
+        "instanceSize": "medium",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 4,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 347,
+            "baselineIops": 2000,
+            "baselineThroughputInMBps": 43.375,
+            "maximumBandwidthInMbps": 2085,
+            "maximumIops": 11800,
+            "maximumThroughputInMBps": 260.625
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 32.923,
+          "reservedOneYear": 58.838,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "c5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "c5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 4,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 51200,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 20000,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 73,
+          "reservedOneYear": 21.17,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.02302397706890688,
+          "pct95": 0.02608329528114659,
+          "pct99": 0.03578330574676856
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 30,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 100
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-024cae7385696cb6b",
+      "name": "i-024cae7385696cb6b",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "2",
+        "Labels": "infrastructure,saas-infrastructure-002",
+        "Name": "saas-infrastructure-002",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "dcst-saas-infrastructure",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "a2a831c6-5ba8-4302-b7fe-9b4db1791e34",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 63.291,
+          "reservedOneYear": 62.05,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "m5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "m5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 76800,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 3600,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 18750,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 85.409996,
+          "reservedOneYear": 84.68,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.038190555259103066,
+          "pct95": 0.17835574964421472,
+          "pct99": 0.32273919368796067
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 150,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 450
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-0ace1b301484bc75c",
+      "name": "i-0ace1b301484bc75c",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "1",
+        "Labels": "optimization-registry-frontend,frontend,saas-frontend-002",
+        "Name": "saas-frontend-002",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "dcst-saas-frontend",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "18664423-b42a-4af3-acf3-5e3bff446e52",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 63.291,
+          "reservedOneYear": 62.05,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "m5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "m5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 76800,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 3600,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 18750,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 85.409996,
+          "reservedOneYear": 84.68,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.024025069450763895,
+          "pct95": 0.07898385624749561,
+          "pct99": 0.1917644814205095
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 150,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 450
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-0613423e38ca9c63d",
+      "name": "i-0613423e38ca9c63d",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "4",
+        "Labels": "aws,github actions,rootless-docker,runner-002",
+        "Name": "runner-002",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "celine",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "20aac2e6-1241-4bbc-8719-4268fe63e5e9",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.xlarge",
+        "instanceTier": "",
+        "instanceSize": "xlarge",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 4,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 4,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 126.582,
+          "reservedOneYear": 56.648003,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "r5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "r5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 76800,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 3600,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 18750,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 108.04,
+          "reservedOneYear": 143.81,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.0234295283992625,
+          "pct95": 0.0787429335593929,
+          "pct99": 0.17795532437720302
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 150,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 450
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-08f71aa90e6366d80",
+      "name": "i-08f71aa90e6366d80",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "2",
+        "Labels": "infrastructure,saas-infrastructure-001",
+        "Name": "saas-infrastructure-001",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "dcst-saas-infrastructure",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "6ab3665f-49e1-4d3f-89e1-9f808e46bc2e",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 63.291,
+          "reservedOneYear": 62.05,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "m5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "m5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 8,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 76800,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 3600,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 18750,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 85.409996,
+          "reservedOneYear": 84.68,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-05-25T00:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.02353693676742281,
+          "pct95": 0.05563378552564322,
+          "pct99": 0.1856433031967904
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 150,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 450
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    },
+    {
+      "id": "i-07ae21a0dba751f43",
+      "name": "i-07ae21a0dba751f43",
+      "tenancy": "Shared",
+      "parentOrg": {
+        "id": "",
+        "name": "",
+        "isEnabled": false
+      },
+      "secondaryOrg": "",
+      "location": "us-west-2",
+      "tags": {
+        "AZ": "us-west-2b",
+        "Deploy_CS": "Yes",
+        "Executors": "4",
+        "Labels": "saas-runner,saas-runner-003",
+        "Name": "saas-runner-003",
+        "PatchGroup": "patchable",
+        "RunnerGroup": "dcst-saas",
+        "RunnerLocation": "/home/ubuntu/.local/runner",
+        "RunnerType": "actions"
+      },
+      "externalIndex": "0c129970-e197-4604-989e-c1aefdae84d1",
+      "operatingSystem": "linux",
+      "vmSizeCurrent": {
+        "instanceFullName": "t3.xlarge",
+        "instanceTier": "",
+        "instanceSize": "xlarge",
+        "instanceFamily": "t3",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 4,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 0,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 0,
+          "vCPUs": 4,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 695,
+            "baselineIops": 4000,
+            "baselineThroughputInMBps": 86.875,
+            "maximumBandwidthInMbps": 2780,
+            "maximumIops": 15700,
+            "maximumThroughputInMBps": 347.5
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 126.582,
+          "reservedOneYear": 56.648003,
+          "reservedThreeYears": null
+        }
+      },
+      "vmSizeSuggested": {
+        "instanceFullName": "r5d.large",
+        "instanceTier": "",
+        "instanceSize": "large",
+        "instanceFamily": "r5d",
+        "instanceCapabilities": {
+          "maxWriteAcceleratorDisksAllowed": 0,
+          "memoryGB": 16,
+          "gpus": 0,
+          "vCPUsPerCore": 2,
+          "encryptionAtHostSupported": true,
+          "maxNetworkInterfaces": 3,
+          "acceleratedNetworkingEnabled": false,
+          "ephemeralOSDiskSupported": false,
+          "nvmeDiskSizeInMiB": 0,
+          "maxDataDiskCount": 1,
+          "hyperVGenerations": "nitro",
+          "maxResourceVolumeMB": 76800,
+          "vCPUs": 2,
+          "confidentialComputingType": "",
+          "cpuArchitectureType": "x64",
+          "premiumIO": false,
+          "ultraSSDAvailable": false,
+          "ebsInfo": {
+            "baselineBandwidthInMbps": 650,
+            "baselineIops": 3600,
+            "baselineThroughputInMBps": 81.25,
+            "maximumBandwidthInMbps": 4750,
+            "maximumIops": 18750,
+            "maximumThroughputInMBps": 593.75
+          }
+        },
+        "location": "us-west-2",
+        "isIntel": true,
+        "familyVersion": "",
+        "pricePerMonth": {
+          "onDemand": 108.04,
+          "reservedOneYear": 143.81,
+          "reservedThreeYears": null
+        }
+      },
+      "metrics": {
+        "cpuUsage": {
+          "name": "cpu_usage",
+          "unit": "percentage",
+          "startTime": "2023-06-07T20:25:00Z",
+          "endTime": "2023-06-24T00:10:00Z",
+          "avg": 0.033703917214163506,
+          "pct95": 0.14389163015198655,
+          "pct99": 0.4244828971279964
+        },
+        "memoryUsage": {
+          "name": "",
+          "unit": "",
+          "startTime": "0001-01-01T00:00:00Z",
+          "endTime": "0001-01-01T00:00:00Z",
+          "avg": 0,
+          "pct95": 0,
+          "pct99": 0
+        }
+      },
+      "osDisk": {
+        "diskSizeGB": 0,
+        "writeAcceleratorEnabled": false,
+        "diskType": "",
+        "iops": 0
+      },
+      "dataDisks": [
+        {
+          "diskSizeGB": 150,
+          "writeAcceleratorEnabled": false,
+          "diskType": "General Purpose",
+          "iops": 450
+        }
+      ],
+      "numNics": 1,
+      "placementGroup": "",
+      "suggestionComments": []
+    }
+  ],
+  "subscriptions": [],
+  "reservations": [],
+  "perfMetrics": [],
+  "placementGroups": null,
+  "csp": "aws",
+  "totalSavingsPerMonth": -284.11597
+}

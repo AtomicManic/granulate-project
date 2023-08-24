@@ -7,22 +7,57 @@ import {
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Home from "./components/views/Home";
-import { AuthProvider } from "./contexts/JWTAuthContext";
-import Navbar from "./components/Navbar";
+import UploadFileView from "./components/views/UploadFileView";
+import { AuthProvider, AuthConsumer } from "./contexts/JWTAuthContext";
+import Navbar from "./components/general/Navbar";
 import Instructions from "./components/views/Instructions";
+import { useEffect, useRef, useState } from "react";
+import axiosInstance from "./services/axios";
+import PublicRoute from "./components/Auth/PublicRoute";
 
 function App() {
+  useEffect(() => {
+    const getCookie = async () => {
+      const res = await axiosInstance.get("/auth/cookie", {
+        withCredentials: true,
+      });
+    };
+    getCookie();
+  }, []);
+
   return (
     <>
       <AuthProvider>
         <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/Instructions" element={<Instructions />} />
-          </Routes>
+          <AuthConsumer>
+            {(auth) => (
+              <>
+                <Navbar />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/Instructions" element={<Instructions />} />
+                  <Route path="/upload" element={<UploadFileView />} />
+                  <Route
+                    path="/login"
+                    element={
+                      <PublicRoute restricted={true}>
+                        <Login />
+                      </PublicRoute>
+                    }
+                  />
+                  <Route
+                    path="/register"
+                    element={
+                      <PublicRoute restricted={true}>
+                        <Register />
+                      </PublicRoute>
+                    }
+                  />
+                  <Route path="/*all" element={<Navigate to="/" replace />} />
+                </Routes>
+              </>
+            )}
+          </AuthConsumer>
         </Router>
       </AuthProvider>
     </>

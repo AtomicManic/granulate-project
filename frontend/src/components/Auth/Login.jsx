@@ -1,19 +1,18 @@
 import {
   Button,
-  Divider,
   Flex,
   FormControl,
   FormErrorMessage,
   Heading,
   Input,
-  useColorMode,
   useColorModeValue,
   Text,
-  // FormHeading,
+  useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 const Login = () => {
   const {
@@ -22,10 +21,23 @@ const Login = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
+  const { login } = useAuth();
+  const auth = useAuth();
+  const toast = useToast();
   const navigate = useNavigate();
 
-  const onSubmit = (values) => {
-    console.log(values);
+  const onSubmit = async (values) => {
+    try {
+      await login(values.email, values.password);
+      navigate("/");
+    } catch (error) {
+      toast({
+        title: "Invalid email or password",
+        status: "error",
+        isClosable: true,
+        duration: 1500,
+      });
+    }
   };
 
   return (
@@ -36,13 +48,16 @@ const Login = () => {
         background={useColorModeValue("gray.100", "gray.700")}
         p={10}
         rounded={6}
-        width="80%"
+        width="65%"
       >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Heading mb={7}>Login</Heading>
+          <Heading textAlign="center" mb={7}>
+            Login
+          </Heading>
           <FormControl isInvalid={errors.email}>
             <Input
               placeholder="Email"
+              autoComplete="username"
               background={useColorModeValue("gray.300", "gray.600")}
               type="email"
               size="lg"
@@ -55,6 +70,7 @@ const Login = () => {
           <FormControl isInvalid={errors.password}>
             <Input
               placeholder="Password"
+              autoComplete="current-password"
               background={useColorModeValue("gray.300", "gray.600")}
               type="password"
               size="lg"
