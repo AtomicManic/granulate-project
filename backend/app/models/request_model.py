@@ -1,5 +1,5 @@
 from beanie import Document
-from typing import Dict
+from typing import Dict, Optional
 from pydantic import Field
 from datetime import datetime
 from beanie.odm.fields import IndexModel
@@ -10,6 +10,7 @@ class InsightRequest(Document):
     user_id: str
     file_id: str
     data: Dict
+    insights: Optional[Dict] = None
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
     class Settings:
@@ -23,6 +24,7 @@ class TempRequest(Document):
     user_id: str
     file_id: str
     data: Dict
+    insights: Optional[Dict] = None
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
     class Settings:

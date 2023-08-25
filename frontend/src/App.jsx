@@ -14,7 +14,7 @@ import Instructions from "./components/views/Instructions";
 import { useEffect, useRef, useState } from "react";
 import axiosInstance from "./services/axios";
 import PublicRoute from "./components/Auth/PublicRoute";
-import PrevInsightsList from './components/insights/PrevInsightsList'
+import PrevInsightsList from "./components/views/PrevInsightsList";
 
 function App() {
   useEffect(() => {

@@ -5,7 +5,6 @@ from typing import Optional
 import pymongo
 
 from app.services.intel_mock_service import IntelMockService
-from app.services.request_service import InsightRequest, TempRequest
 from app.services.config import settings
 from app.services.request_service import RequestService
 from app.util.insights_analysis import InsightAnalysis
@@ -68,7 +67,6 @@ class RequestController:
     async def save_auth_request(data: Dict, id: str):
         try:
             new_data = await RequestService.save_suggestion(data=data["data"], user_id=id)
-            print('here2')
             return new_data
         except pymongo.errors.OperationFailure:
             raise HTTPException(
@@ -82,14 +80,24 @@ class RequestController:
             )
 
     @staticmethod
-    async def generate_insights(data: dict, isAuth: bool, request: Request, id: Optional[str] = None):
-        print("generate insights")
+    async def save_insights(file_id: str, insights: dict, isAuth: bool):
+        if isAuth:
+            document = await RequestService.get_request_by_file_id(file_id)
+        else:
+            document = await RequestService.get_temp_request_by_file_id(file_id)
+        if document:
+            document.insights = insights
+            await document.save()
+
+    @staticmethod
+    async def generate_insights(data: dict, file_id: str, isAuth: bool):
         try:
             # get insights from intel API (mock)
             insight_id = IntelMockService.get_insight_id(data)
             insights = await IntelMockService.get_insights(data, insight_id)
 
             result = InsightAnalysis.analyze_insights(insights)
+            await RequestController.save_insights(file_id, result, isAuth)
             return result
         except Exception as e:
             raise HTTPException(
@@ -97,5 +105,9 @@ class RequestController:
                 detail="An error occurred while processing the request."
             )
 
+    @staticmethod
+    async def get_insights_by_user_id(user_id: str):
+        response = await RequestService.get_insights_by_user_id(user_id)
+        return response
 
 # 2023-08-25T09:44:33.440+00:00

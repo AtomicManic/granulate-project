@@ -50,6 +50,7 @@ const UploadFileView = () => {
       );
       setInsights(response.data);
     } catch (error) {
+      console.log(error);
       setMessage(
         error?.response.data?.detail
           ? error?.response.data?.detail

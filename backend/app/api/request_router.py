@@ -8,7 +8,6 @@ router = APIRouter()
 
 @router.post("")
 async def save_suggestion(data: Dict, id: str, request: Request):
-    print('here')
     if id:
         isAuth = True
         data = await RequestController.save_auth_request(data, id)
@@ -17,5 +16,12 @@ async def save_suggestion(data: Dict, id: str, request: Request):
         data = await RequestController.save_temp_request(data, request)
 
     response = await RequestController.generate_insights(
-        data, isAuth, request, id)
+        data, data.file_id, isAuth)
+    return response
+
+
+@router.get('/insights')
+async def get_insights_by_user_id(id: str):
+    print("45454")
+    response = await RequestController.get_insights_by_user_id(id)
     return response
