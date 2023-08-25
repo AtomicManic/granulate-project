@@ -3,7 +3,7 @@ from app.services.config import settings
 from beanie import init_beanie
 from motor.motor_asyncio import AsyncIOMotorClient
 from app.models.user_model import User
-from app.models.request_model import Request, TempRequest
+from app.models.request_model import InsightRequest, TempRequest
 from app.api.root_router import router
 from fastapi.middleware.cors import CORSMiddleware
 from app.middleware.error_handler_mw import exception_middleware
@@ -13,7 +13,7 @@ app = FastAPI(
     openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
 
-app.add_middleware(middleware_class=exception_middleware)
+app.middleware("http")(exception_middleware)
 
 origins = [
     "http://localhost:5173"
@@ -45,7 +45,7 @@ async def app_init():
         database=db,
         document_models=[
             User,
-            Request,
+            InsightRequest,
             TempRequest
         ]
     )

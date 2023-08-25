@@ -6,8 +6,9 @@ import { useAuth } from "../../hooks/useAuth";
 
 const Home = () => {
   const auth = useAuth();
+  const toStore = { user: auth.user };
   useState(() => {
-    localStorage.setItem("authState", JSON.stringify(auth));
+    localStorage.setItem("authState", JSON.stringify(toStore));
   }, []);
   return (
     <Flex direction="column" justifyContent="center" width="80%" m="0 auto">

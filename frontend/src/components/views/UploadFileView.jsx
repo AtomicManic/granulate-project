@@ -48,12 +48,14 @@ const UploadFileView = () => {
           withCredentials: true,
         }
       );
+      setInsights(response.data);
     } catch (error) {
-      setMessage("Something went wrong... Please try again in a few minutes");
-      setIsLoading(false);
+      setMessage(
+        error?.response.data?.detail
+          ? error?.response.data?.detail
+          : "Something went wrong... Please try again in a few minutes"
+      );
     }
-
-    setInsights(response.data.data);
     setIsLoading(false);
   };
 

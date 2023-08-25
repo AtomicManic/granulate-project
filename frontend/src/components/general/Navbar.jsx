@@ -75,6 +75,17 @@ const Navbar = () => {
             >
               Creat JSON File
             </Button>
+            {auth.isAuthenticated && (
+              <Button
+                onClick={() => navigate("/my-insights")}
+                colorScheme="teal"
+                variant="link"
+                mr={3}
+                _hover={{ color: "white" }}
+              >
+                My Insights
+              </Button>
+            )}
           </>
         )}
       </Flex>

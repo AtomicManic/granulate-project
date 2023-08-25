@@ -14,6 +14,7 @@ import Instructions from "./components/views/Instructions";
 import { useEffect, useRef, useState } from "react";
 import axiosInstance from "./services/axios";
 import PublicRoute from "./components/Auth/PublicRoute";
+import PrevInsightsList from './components/insights/PrevInsightsList'
 
 function App() {
   useEffect(() => {
@@ -53,6 +54,7 @@ function App() {
                       </PublicRoute>
                     }
                   />
+                  <Route path="/my-insights" element={<PrevInsightsList />} />
                   <Route path="/*all" element={<Navigate to="/" replace />} />
                 </Routes>
               </>

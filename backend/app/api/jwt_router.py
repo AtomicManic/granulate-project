@@ -33,5 +33,6 @@ async def refresh_token(refresh_token: str = Body(...)):
 
 @router.get('/cookie')
 async def get_cookie(request: Request, response: Response):
+    print('cookie')
     cookie = request.cookies.get('anonymous_id')
     response = await JWTController.get_cookie(cookie, response)

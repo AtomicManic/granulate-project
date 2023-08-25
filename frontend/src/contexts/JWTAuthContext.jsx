@@ -118,7 +118,7 @@ export const AuthProvider = (props) => {
     dispatch({
       type: "LOGOUT",
     });
-    localStorage.setItem("authState", JSON.stringify(initialState));
+    localStorage.setItem("authState", JSON.stringify(null));
   };
 
   return (
