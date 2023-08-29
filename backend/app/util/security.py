@@ -10,7 +10,6 @@ password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 def create_access_token(subject: Union[str, Any], expires_delta: int = None) -> str:
-    print('here')
     if expires_delta is not None:
         expires_delta = datetime.utcnow() + expires_delta
     else:
@@ -18,13 +17,11 @@ def create_access_token(subject: Union[str, Any], expires_delta: int = None) -> 
         ) + timedelta(hours=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
 
     timestamp = int(expires_delta.timestamp())
-    current_time_unix = int(datetime.utcnow().timestamp())
 
     to_encode = {"exp": timestamp, "sub": str(subject)}
     encoded_jwt = jwt.encode(
         to_encode, settings.JWT_SECRET_KEY, settings.ALGORITHM)
 
-    print(current_time_unix, timestamp)
     return encoded_jwt
 
 

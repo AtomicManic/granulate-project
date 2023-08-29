@@ -1,27 +1,33 @@
 from fastapi import APIRouter, Request
-import pymongo
 from typing import Dict
 
 from app.controller.request_controller import RequestController
+from app.errors.errors import UnableToProcess, MissingAttribute, UnableToCreate
+
 router = APIRouter()
 
 
 @router.post("")
 async def save_suggestion(data: Dict, id: str, request: Request):
-    if id:
+    if not data:
+        raise MissingAttribute("File data")
+
+    if id == "invalid":
+        raise UnableToProcess("user details")
+    elif id:
         isAuth = True
-        data = await RequestController.save_auth_request(data, id)
+        sugg = await RequestController.save_auth_request(data, id, isAuth)
     else:
         isAuth = False
-        data = await RequestController.save_temp_request(data, request)
+        sugg = await RequestController.save_temp_request(data, request, isAuth)
 
-    response = await RequestController.generate_insights(
-        data, data.file_id, isAuth)
-    return response
+    if not sugg:
+        raise UnableToCreate("Request")
+
+    return sugg
 
 
 @router.get('/insights')
 async def get_insights_by_user_id(id: str):
-    print("45454")
     response = await RequestController.get_insights_by_user_id(id)
     return response

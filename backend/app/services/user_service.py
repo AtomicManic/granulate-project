@@ -1,12 +1,10 @@
 from typing import Optional
-from uuid import UUID
-from jose import jwt
-import uuid
+from pymongo.errors import OperationFailure
 
 from app.schemas.user_schema import UserAuth
 from app.models.user_model import User
 from app.util.security import get_password, verify_password
-from app.services.config import settings
+from app.errors.errors import UnableToCreate
 
 
 class UserService:
@@ -18,8 +16,14 @@ class UserService:
             first_name=user.first_name,
             last_name=user.last_name
         )
-        await user_in.insert()
+        try:
+            await user_in.insert()
+        except OperationFailure:
+            raise UnableToCreate("user")
+
         new_user = await User.find_one(User.email == user.email)
+        if not new_user:
+            return None
         return new_user
 
     @staticmethod

@@ -1,12 +1,13 @@
 import datetime
 from beanie import Document, Indexed
 from uuid import UUID, uuid4
-from pydantic import Field, EmailStr
+from pydantic import Field, EmailStr, field_validator
+from email_validator import validate_email
 
 
 class User(Document):
     user_id: UUID = Field(default_factory=lambda: str(uuid4()))
-    email: Indexed(EmailStr, unique=True)
+    email: Indexed(str, unique=True)
     hashed_password: str
     first_name: str
     last_name: str

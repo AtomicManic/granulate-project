@@ -2,7 +2,6 @@ from uuid import uuid4
 import aiofiles
 import json
 from fastapi import HTTPException
-import os
 
 
 class IntelMockService:

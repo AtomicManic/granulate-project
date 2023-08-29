@@ -15,8 +15,8 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { useDisclosure } from "@chakra-ui/react";
 
 const VmInsight = ({ insight }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();

@@ -9,7 +9,6 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../services/axios";
@@ -21,9 +20,7 @@ const Register = () => {
     register,
     formState: { errors, isSubmitting },
   } = useForm();
-
   const [errorMsgs, setErrorMsgs] = useState({});
-
   const navigate = useNavigate();
 
   const onSubmit = async (values) => {

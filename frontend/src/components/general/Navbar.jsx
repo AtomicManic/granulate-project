@@ -7,9 +7,6 @@ import {
   IconButton,
   useBreakpointValue,
   useDisclosure,
-} from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
-import {
   Drawer,
   DrawerBody,
   DrawerFooter,
@@ -18,8 +15,9 @@ import {
   DrawerContent,
   DrawerCloseButton,
 } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
-import { CloudArrowUp, BoxArrowRight } from "react-bootstrap-icons";
+import { CloudArrowUp } from "react-bootstrap-icons";
 import { useAuth } from "../../hooks/useAuth";
 
 const Navbar = () => {
@@ -30,7 +28,13 @@ const Navbar = () => {
 
   const handleLogout = () => {
     auth.logout();
-    navigate("/");
+    onClose();
+    navigate("/logout");
+  };
+
+  const handleClick = (target) => {
+    onClose();
+    navigate(target);
   };
 
   const isMobileNav = useBreakpointValue({ base: true, md: false });
@@ -156,7 +160,7 @@ const Navbar = () => {
             <DrawerBody mt={6}>
               <Flex direction="column" alignItems="flex-start">
                 <Button
-                  onClick={() => navigate("/upload")}
+                  onClick={() => handleClick("/upload")}
                   colorScheme="teal"
                   variant="link"
                   mb={5}
@@ -166,29 +170,42 @@ const Navbar = () => {
                   Upload File
                 </Button>
                 <Button
-                  onClick={() => navigate("/instructions")}
+                  onClick={() => handleClick("/instructions")}
                   colorScheme="teal"
                   variant="link"
+                  mb={5}
                   fontSize={23}
                   _hover={{ color: "white" }}
                 >
                   Creat JSON File
                 </Button>
+                {auth.isAuthenticated && (
+                  <Button
+                    onClick={() => handleClick("/my-insights")}
+                    colorScheme="teal"
+                    variant="link"
+                    mb={5}
+                    fontSize={23}
+                    _hover={{ color: "white" }}
+                  >
+                    My Insights
+                  </Button>
+                )}
               </Flex>
             </DrawerBody>
 
             <DrawerFooter borderTopWidth="1px">
-              {!auth.isAuthenticated && (
+              {!auth.isAuthenticated ? (
                 <>
                   <Button
-                    onClick={() => navigate("/login")}
+                    onClick={() => handleClick("/login")}
                     colorScheme="teal"
                     variant="link"
                   >
                     Login
                   </Button>
                   <Button
-                    onClick={() => navigate("/register")}
+                    onClick={() => handleClick("/register")}
                     ml={5}
                     colorScheme="teal"
                     variant="solid"
@@ -196,6 +213,15 @@ const Navbar = () => {
                     Signup
                   </Button>
                 </>
+              ) : (
+                <Button
+                  onClick={() => handleLogout()}
+                  ml={5}
+                  colorScheme="teal"
+                  variant="solid"
+                >
+                  Logout
+                </Button>
               )}
             </DrawerFooter>
           </DrawerContent>

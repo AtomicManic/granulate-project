@@ -20,7 +20,6 @@ const Login = () => {
     register,
     formState: { errors, isSubmitting },
   } = useForm();
-
   const { login } = useAuth();
   const auth = useAuth();
   const toast = useToast();

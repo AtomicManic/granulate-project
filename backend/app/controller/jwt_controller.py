@@ -1,21 +1,13 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Body, Response, Request
-from fastapi.security import OAuth2PasswordRequestForm
-from typing import Any
+from fastapi import Body, Response
 from jose import jwt
-from pydantic import ValidationError
-from uuid import UUID, uuid4
+from uuid import uuid4
+from pymongo.errors import OperationFailure
 
 from app.services.user_service import UserService
-from app.schemas.auth_schema import TokenSchema
-from app.schemas.user_schema import UserOut
-from app.models.user_model import User
 from app.services.config import settings
 from app.schemas.auth_schema import TokenPayload
-
-from app.errors.errors import CookieNotFound, MissingAttribute, UnAuthenticated, JWTDecodeError, EntityNotFound
-
+from app.errors.errors import CookieNotFound, UnableToGet, MissingAttribute, UnAuthenticated, JWTDecodeError, EntityNotFound
 from app.util.security import create_access_token, create_refresh_token
-from app.api.deps.user_deps import get_current_user
 
 
 class JWTController:
@@ -26,7 +18,6 @@ class JWTController:
 
         if not password:
             raise MissingAttribute("Password")
-
         user = await UserService.authenticate(email=email, password=password)
         if not user:
             raise UnAuthenticated()
@@ -55,8 +46,10 @@ class JWTController:
                 "refresh_token": create_refresh_token(user.user_id)
             }
 
-        except (jwt.JWTError, ValidationError):
+        except (jwt.JWTError):
             raise JWTDecodeError()
+        except (OperationFailure):
+            raise UnableToGet("user")
 
     @staticmethod
     async def get_cookie(cookie: str, response: Response):
@@ -69,5 +62,5 @@ class JWTController:
                                     httponly=True, max_age=1800, expires=1800, samesite="None", secure=True)
                 return {"message": "cookie is set"}
             return {"message": "cookie exist"}
-        except (jwt.JWTError, ValidationError):
+        except Exception as e:
             raise CookieNotFound()

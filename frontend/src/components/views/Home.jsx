@@ -1,15 +1,8 @@
 import { Flex, Heading, Text } from "@chakra-ui/react";
 import SliderComponent from "../general/SliderComponent";
-import { React, useState } from "react";
-
 import { useAuth } from "../../hooks/useAuth";
 
 const Home = () => {
-  const auth = useAuth();
-  const toStore = { user: auth.user };
-  useState(() => {
-    localStorage.setItem("authState", JSON.stringify(toStore));
-  }, []);
   return (
     <Flex direction="column" justifyContent="center" width="80%" m="0 auto">
       <Heading m={10} mb={3}>

@@ -1,9 +1,8 @@
 import React from "react";
 import VmInsight from "./VmInsight";
-import { Flex, Heading, Text, Grid, Box, Button } from "@chakra-ui/react";
+import { Flex, Heading, Grid, Box } from "@chakra-ui/react";
 
 const InsightsList = ({ insights }) => {
-  const toDelete = new Array();
   return (
     <>
       <Heading as="h2" size="lg" mb={4}>

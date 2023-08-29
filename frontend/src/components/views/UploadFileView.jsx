@@ -1,8 +1,4 @@
-import React from "react";
-import UploadFile from "../insights/UploadFile";
-import CloudDivider from "../general/CloudDivider";
-import { useState } from "react";
-import { useDropzone } from "react-dropzone";
+import { useState, useCallback } from "react";
 import {
   Heading,
   Flex,
@@ -10,11 +6,12 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
+import UploadFile from "../insights/UploadFile";
+import CloudDivider from "../general/CloudDivider";
 import axiosInstance from "../../services/axios";
 import { useAuth } from "../../hooks/useAuth";
-import VmInsight from "../insights/VmInsight";
 import Insights from "../insights/Insights";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const UploadFileView = () => {
   const [fileName, setFileName] = useState("");
@@ -30,12 +27,11 @@ const UploadFileView = () => {
     let response;
     let id;
     setIsLoading(true);
-    const { user } = JSON.parse(localStorage.getItem("authState"));
     if (auth.isAuthenticated) {
       if (auth.user) {
         id = auth.user.user_id;
       } else if (user !== null) {
-        id = user.user_id;
+        id = "invalid";
       }
     } else {
       id = "";
@@ -48,9 +44,8 @@ const UploadFileView = () => {
           withCredentials: true,
         }
       );
-      setInsights(response.data);
+      setInsights(response.data.insights);
     } catch (error) {
-      console.log(error);
       setMessage(
         error?.response.data?.detail
           ? error?.response.data?.detail
@@ -60,7 +55,7 @@ const UploadFileView = () => {
     setIsLoading(false);
   };
 
-  const onDrop = React.useCallback((acceptedFiles) => {
+  const onDrop = useCallback((acceptedFiles) => {
     const reader = new FileReader();
     reader.onload = () => {
       try {

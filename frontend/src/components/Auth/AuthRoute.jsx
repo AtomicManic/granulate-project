@@ -7,12 +7,12 @@ const PublicRoute = ({ children, restricted }) => {
   const auth = useAuth();
 
   useEffect(() => {
-    if (auth.isAuthenticated && restricted) {
+    if (!auth.isAuthenticated && restricted) {
       navigate("/");
     }
   }, [auth.isAuthenticated, restricted, navigate]);
 
-  return auth.isAuthenticated && restricted ? null : children;
+  return auth.isAuthenticated && restricted ? children : null;
 };
 
 export default PublicRoute;

@@ -8,6 +8,7 @@ async def exception_middleware(request: Request, call_next):
         response = await call_next(request)
         return response
     except Exception as e:
+        print(e)
         logging.error(f"An unexpected error occurred: {e}")
         return JSONResponse(
             status_code=500,

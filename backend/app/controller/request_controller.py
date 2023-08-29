@@ -1,113 +1,93 @@
-from fastapi import Request, HTTPException, status
+from fastapi import Request
 from typing import Dict
 from jose import jwt, JWTError
-from typing import Optional
-import pymongo
+from pymongo.errors import WriteError, DuplicateKeyError
 
 from app.services.intel_mock_service import IntelMockService
 from app.services.config import settings
 from app.services.request_service import RequestService
 from app.util.insights_analysis import InsightAnalysis
 from app.models.request_model import InsightRequest
+from app.errors.errors import EntityNotFound, JWTDecodeError, CookieNotFound, UnableToCreate, UnableToGet, MissingAttribute, DuplicateEntity
 
 
 class RequestController:
 
     @staticmethod
-    async def get_temp_request(request: Request):
+    async def save_temp_request(data: Dict, request: Request, isAuth: bool):
+        if not data["data"]:
+            raise MissingAttribute("file")
+
         try:
-            # Get cookie and decode
-            cookie = request.cookies['anonymous_id']
-            if cookie is None:
-                raise HTTPException(
-                    status_code=status.HTTP_400_BAD_REQUEST,
-                    detail="Missing Cookie"
-                )
-            user = jwt.decode(
-                cookie, settings.JWT_SECRET_KEY, settings.ALGORITHM)
-            user_id = user['user_id']
-            suggestion = await RequestService.get_temp_by_id(user_id)
-            return suggestion
-
-        except JWTError as e:
-            raise Exception(f"JWT decode Error:{e}")
-
-        except pymongo.errors.WriteError:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Unable to save file to DB"
-            )
-
-        except Exception as e:
-            raise Exception(e)
-
-    @staticmethod
-    async def save_temp_request(data: Dict, request: Request):
-        try:
-            # Get cookie and decode
             cookie = request.cookies.get("anonymous_id", None)
             if cookie is None:
-                raise Exception("Cookie not found")
+                raise CookieNotFound()
             user = jwt.decode(
                 cookie, settings.JWT_SECRET_KEY, settings.ALGORITHM)
-            # save suggestion
-            new_data = await RequestService.save_temp_suggestion(data["data"], user_id=user['user_id'])
+
+            if not user['user_id']:
+                raise MissingAttribute("user id")
+
+            insights = await RequestController.generate_insights(data['data'], data['data']['id'], isAuth)
+            if not insights:
+                raise UnableToCreate("insights")
+
+            new_data = await RequestService.save_temp_suggestion(data["data"], user_id=user['user_id'], insights=insights)
+            if not new_data:
+                raise UnableToCreate("request")
             return new_data
 
-        except JWTError as e:
-            raise Exception(f"JWT decode Error:{e}")
-
-        except pymongo.errors.WriteError:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Unable to save file to DB"
-            )
+        except JWTError:
+            raise JWTDecodeError()
+        except DuplicateKeyError:
+            raise DuplicateEntity("file")
+        except WriteError:
+            raise UnableToCreate("request")
 
     @staticmethod
-    async def save_auth_request(data: Dict, id: str):
+    async def save_auth_request(data: Dict, id: str, isAuth: bool):
+        if not data['data']:
+            raise MissingAttribute("File data")
+        if not id:
+            raise MissingAttribute("User id")
+        insights = await RequestController.generate_insights(data['data'], data['data']['id'], isAuth)
+        if not insights:
+            raise UnableToCreate("insights")
         try:
-            new_data = await RequestService.save_suggestion(data=data["data"], user_id=id)
+            new_data = await RequestService.save_suggestion(data=data["data"], user_id=id, insights=insights)
+            if not new_data:
+                raise UnableToCreate("request")
             return new_data
-        except pymongo.errors.OperationFailure:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="User does not exist"
-            )
-        except Exception as e:
-            raise HTTPException(
-                status_code=500,
-                detail="An error occurred while processing the request."
-            )
-
-    @staticmethod
-    async def save_insights(file_id: str, insights: dict, isAuth: bool):
-        if isAuth:
-            document = await RequestService.get_request_by_file_id(file_id)
-        else:
-            document = await RequestService.get_temp_request_by_file_id(file_id)
-        if document:
-            document.insights = insights
-            await document.save()
+        except DuplicateKeyError:
+            raise DuplicateEntity("file")
+        except WriteError:
+            raise UnableToCreate("request")
 
     @staticmethod
     async def generate_insights(data: dict, file_id: str, isAuth: bool):
         try:
             # get insights from intel API (mock)
             insight_id = IntelMockService.get_insight_id(data)
+            if not insight_id:
+                raise UnableToGet("insights")
             insights = await IntelMockService.get_insights(data, insight_id)
+            if not insights:
+                raise UnableToGet("insights")
 
             result = InsightAnalysis.analyze_insights(insights)
-            await RequestController.save_insights(file_id, result, isAuth)
+            if not result:
+                raise UnableToCreate("insights")
+
             return result
-        except Exception as e:
-            raise HTTPException(
-                status_code=500,
-                detail="An error occurred while processing the request."
-            )
+        except WriteError:
+            raise UnableToCreate("insights")
 
     @staticmethod
     async def get_insights_by_user_id(user_id: str):
-        response = await RequestService.get_insights_by_user_id(user_id)
-        return response
-
-# 2023-08-25T09:44:33.440+00:00
+        try:
+            response = await RequestService.get_insights_by_user_id(user_id)
+            if not response:
+                raise EntityNotFound("Insights")
+            return response
+        except Exception:
+            raise EntityNotFound("Insights list")

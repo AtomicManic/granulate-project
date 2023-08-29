@@ -16,10 +16,11 @@ reusable_auth = OAuth2PasswordBearer(
 
 
 async def get_current_user(token: str = Depends(reusable_auth)) -> User:
+
     try:
         payload = jwt.decode(token, settings.JWT_SECRET_KEY,
                              algorithms=[settings.ALGORITHM])
-        print('here1')
+
         token_data = TokenPayload(**payload)
         if datetime.fromtimestamp(token_data.exp) < datetime.utcnow():
             raise HTTPException(
@@ -34,9 +35,7 @@ async def get_current_user(token: str = Depends(reusable_auth)) -> User:
             headers={"WWW-Authentication": "Bearer"}
         )
 
-    print(type(token_data.sub))
     user = await UserService.get_user_by_id(id=str(token_data.sub))
-    print('1', user)
 
     if not user:
         raise HTTPException(
@@ -44,5 +43,4 @@ async def get_current_user(token: str = Depends(reusable_auth)) -> User:
             detail="Could not find user",
             headers={"WWW-Authentication": "Bearer"}
         )
-
     return user

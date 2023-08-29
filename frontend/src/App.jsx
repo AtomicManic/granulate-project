@@ -11,10 +11,12 @@ import UploadFileView from "./components/views/UploadFileView";
 import { AuthProvider, AuthConsumer } from "./contexts/JWTAuthContext";
 import Navbar from "./components/general/Navbar";
 import Instructions from "./components/views/Instructions";
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import axiosInstance from "./services/axios";
 import PublicRoute from "./components/Auth/PublicRoute";
 import PrevInsightsList from "./components/views/PrevInsightsList";
+import AuthRoute from "./components/Auth/AuthRoute";
+import LogoutLoader from "./components/general/LogoutLoader";
 
 function App() {
   useEffect(() => {
@@ -54,7 +56,15 @@ function App() {
                       </PublicRoute>
                     }
                   />
-                  <Route path="/my-insights" element={<PrevInsightsList />} />
+                  <Route
+                    path="/my-insights"
+                    element={
+                      <AuthRoute restricted={true}>
+                        <PrevInsightsList />
+                      </AuthRoute>
+                    }
+                  />
+                  <Route path="/logout" element={<LogoutLoader />} />
                   <Route path="/*all" element={<Navigate to="/" replace />} />
                 </Routes>
               </>

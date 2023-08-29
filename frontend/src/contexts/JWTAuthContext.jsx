@@ -50,6 +50,29 @@ export const AuthProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const isMounted = useRef(false);
 
+  // Initialize auto-refresh
+  useEffect(() => {
+    const refreshToken = async () => {
+      try {
+        const { refreshToken } = localStorage.getItem("refreshToken");
+        const response = await axiosInstance.post("/auth/refresh", {
+          refresh_token: refreshToken,
+        });
+        const { access_token, refresh_token } = response.data;
+
+        setSession(access_token, refresh_token);
+      } catch (error) {
+        resetSession();
+      }
+    };
+
+    const interval = setInterval(() => {
+      refreshToken();
+    }, 15 * 60 * 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   useEffect(() => {
     if (isMounted.current) return;
     const initialize = async () => {

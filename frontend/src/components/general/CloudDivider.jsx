@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Divider, AbsoluteCenter } from "@chakra-ui/react";
 import { CloudArrowUpFill } from "react-bootstrap-icons";
 
